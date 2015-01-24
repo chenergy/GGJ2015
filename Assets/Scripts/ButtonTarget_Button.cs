@@ -1,12 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum ButtonState {
-	BUTTON_UP,
-	BUTTON_DOWN
-}
-
-public class HammerTrigger_Button : A_HammerTrigger
+public class ButtonTarget_Button : A_ButtonTarget
 {
 	public Sprite up;
 	public Sprite down;
@@ -15,7 +10,6 @@ public class HammerTrigger_Button : A_HammerTrigger
 	public ButtonState prevState = ButtonState.BUTTON_DOWN;
 
 	private SpriteRenderer spriteRenderer;
-
 
 
 
@@ -29,10 +23,8 @@ public class HammerTrigger_Button : A_HammerTrigger
 	}
 
 
-	protected override void OnHammerHit ()
+	public override void OnButtonHit ()
 	{
-		base.OnHammerHit ();
-
 		if (this.currentState != this.prevState) {
 			this.currentState = prevState;
 
@@ -40,9 +32,6 @@ public class HammerTrigger_Button : A_HammerTrigger
 				this.spriteRenderer.sprite = down;
 			else
 				this.spriteRenderer.sprite = up;
-
-			if (this.target != null)
-				this.target.OnButtonHit ();
 
 			this.collider2D.enabled = false;
 		} 

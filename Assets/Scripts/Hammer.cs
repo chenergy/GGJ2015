@@ -5,6 +5,9 @@ public class Hammer : MonoBehaviour
 {
 	public Animator hammerAnim;
 	private bool isHammering = false;
+	public bool IsHammering {
+		get { return this.isHammering; }
+	}
 
 	// Use this for initialization
 	void Start ()

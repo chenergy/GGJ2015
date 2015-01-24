@@ -3,12 +3,23 @@ using System.Collections;
 
 public abstract class A_HammerTrigger : MonoBehaviour
 {
-	void OnTriggerEnter2D (Collider2D other){
-		if (other.GetComponent <Hammer> () != null) {
-			this.OnHammerHit ();
-		}
+	public A_ButtonTarget target;
+
+	public GameObject clockPrefab;
+
+	protected bool triggered = false;
+
+	void OnTriggerStay2D (Collider2D other){
+		Hammer hammer = other.GetComponent <Hammer> ();
+		if (hammer != null)
+			if (hammer.IsHammering && !this.triggered)
+				this.OnHammerHit ();
 	}
 
-	protected abstract void OnHammerHit ();
+	protected virtual void OnHammerHit (){
+		this.triggered = true;
+
+		GameObject.Instantiate (this.clockPrefab, this.transform.position + Vector3.up * 2, Quaternion.identity);
+	}
 }
 
