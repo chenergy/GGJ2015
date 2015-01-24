@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public enum CurrentLevel {
-	BOSS_BATTLE,
+	BOSS_LEVEL,
 	GRAVITY,
 	BOMB_DISARM
 }
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
 	private int level = 0;
 
 	private CurrentLevel[] levelList = new CurrentLevel [3] {
-		CurrentLevel.BOSS_BATTLE,
+		CurrentLevel.BOSS_LEVEL,
 		CurrentLevel.GRAVITY,
 		CurrentLevel.BOMB_DISARM
 	};
@@ -35,14 +35,14 @@ public class GameManager : MonoBehaviour {
 
 
 	public void GoToNextLevel (){
-		if (instance.level < this.levelList.Length) {
+		if (instance.level < this.levelList.Length - 1) {
 			instance.level++;
 			Application.LoadLevel (instance.levelList [instance.level].ToString ());
 		}
 	}
 
 
-	public void GoToLastLevel (){
+	public void GoToPrevLevel (){
 		if (instance.level > 0) {
 			instance.level--;
 			Application.LoadLevel (instance.levelList [instance.level].ToString ());
