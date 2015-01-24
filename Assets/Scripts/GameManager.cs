@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public enum CurrentLevel {
 	BOSS_BATTLE,
@@ -14,7 +15,13 @@ public class GameManager : MonoBehaviour {
 		get { return instance; }
 	}
 
-	public CurrentLevel level = CurrentLevel.BOSS_BATTLE;
+	private int level = 0;
+
+	private CurrentLevel[] levelList = new CurrentLevel [3] {
+		CurrentLevel.BOSS_BATTLE,
+		CurrentLevel.GRAVITY,
+		CurrentLevel.BOMB_DISARM
+	};
 
 
 	void Awake (){
@@ -22,16 +29,23 @@ public class GameManager : MonoBehaviour {
 			GameObject.Destroy (this.gameObject);
 		} else {
 			instance = this;
+			GameObject.DontDestroyOnLoad (this.gameObject);
 		}
 	}
 
-	// Use this for initialization
-	void Start () {
-	
+
+	public void GoToNextLevel (){
+		if (instance.level < this.levelList.Length) {
+			instance.level++;
+			Application.LoadLevel (instance.levelList [instance.level].ToString ());
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+
+	public void GoToLastLevel (){
+		if (instance.level > 0) {
+			instance.level--;
+			Application.LoadLevel (instance.levelList [instance.level].ToString ());
+		}
 	}
 }
