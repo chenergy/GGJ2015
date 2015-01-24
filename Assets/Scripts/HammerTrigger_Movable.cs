@@ -1,22 +1,20 @@
 using UnityEngine;
 using System.Collections;
 
-public enum ButtonState {
-	BUTTON_UP,
-	BUTTON_DOWN
-}
 
 public class HammerTrigger_Movable : A_HammerTrigger
 {
 	public float totalTime;
-	private float appliedTime;
 	public Vector2 forceVector;
-	public bool isGoingForward;
+
+	private float appliedTime;
+	private bool isGoingForward;
 
 	private SpriteRenderer spriteRenderer;
 
 	void Start (){
 		appliedTime = 0;
+		isGoingForward = true;
 	}
 
 	void Update(){
