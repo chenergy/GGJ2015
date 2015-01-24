@@ -4,33 +4,42 @@ using System.Collections;
 
 public class HammerTrigger_Movable : A_HammerTrigger
 {
-	public float totalTime;
-	public Vector2 forceVector;
 
-	private float appliedTime;
-	private bool isGoingForward;
+	public float speed;
+
+	public Transform startTransform;
+	public Transform finalTransform;
+
+	public Vector2 startVector;
+	public Vector2 endVector; 
 
 	private SpriteRenderer spriteRenderer;
+	private bool isGoingForward;
+	private Vector2 currentVector;
 
 	void Start (){
-		appliedTime = 0;
 		isGoingForward = true;
+		currentVector = startVector; 
+		startVector = startTransform.position;
+		endVector = finalTransform.position;
 	}
 
 	void Update(){
-		if (isGoingForward) {
-			if (appliedTime < totalTime) {
-				this.rigidbody2D.AddForce (forceVector);
-				appliedTime += Time.deltaTime;
-			}	
+		//this.GetComponent<Transform> ();
+		if (isGoingForward &&(currentVector != endVector)) {
+				StepForward ();
+
 		} else {
-			if (appliedTime > 0) {
-				this.rigidbody2D.AddForce(-forceVector);
-				appliedTime -= Time.deltaTime;
-			}	
 		}
 	}
 	
+	void StepForward(){
+		Transform thisTransform = this.GetComponent<Transform> ();
+		Vector3 direction = endVector-startVector;
+		thisTransform.position += direction.normalized*speed*Time.deltaTime;
+	}
+
+
 	protected override void OnHammerHit ()
 	{
 		Debug.Log ("Hammer has hit button");
