@@ -7,9 +7,13 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 	public Collider2D enemyCollider;
 	public Animator enemyAnimator;
 
+	public Transform patrolTarget1;
+	public Transform patrolTarget2;
+
 	public bool startAlive = true;
 
 	private bool isAlive = true;
+	private Transform curTarget;
 
 
 	void Start (){
@@ -21,7 +25,21 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 			this.enemyCollider.isTrigger = true;
 			this.Die ();
 		}
+
+		this.curTarget = this.patrolTarget1;
 	}
+
+
+	void Update (){
+		if (this.isAlive) {
+			if (this.patrolTarget1.transform.position.x > this.enemyTransform.position.x) { // right of enemy
+
+			} else {
+			}
+			//this.transform.position += new Vector3 (this.patrolTarget1.transform.position.x - this.enemyTransform.position.x, 
+		}
+	}
+
 
 
 	protected override void OnHammerHit ()
@@ -36,6 +54,7 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 	public void ReturnToLife (){
 		StartCoroutine ("ReturnRoutine");
 	}
+
 
 	public void Die (){
 		StartCoroutine ("DieRoutine");
