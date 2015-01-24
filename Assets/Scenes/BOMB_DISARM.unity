@@ -225,10 +225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1db2dcf8fdd7d343b122e88e174f07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMargin: 1
-  yMargin: 1
-  xSmooth: 8
-  ySmooth: 8
+  xMargin: 0
+  yMargin: 0
+  xSmooth: 100
+  ySmooth: 100
   maxXAndY: {x: 10000, y: 10000}
   minXAndY: {x: -10000, y: -10000}
 --- !u!1 &125353915
@@ -1025,6 +1025,18 @@ Prefab:
     - target: {fileID: 400020, guid: 6aa187bc6339843479c03fdfd71404a3, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 6aa187bc6339843479c03fdfd71404a3, type: 2}
+      propertyPath: moveForce
+      value: 637.599976
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 6aa187bc6339843479c03fdfd71404a3, type: 2}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 6aa187bc6339843479c03fdfd71404a3, type: 2}
+      propertyPath: jumpForce
+      value: 1777
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6aa187bc6339843479c03fdfd71404a3, type: 2}
@@ -3308,9 +3320,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   jump: 0
-  moveForce: 365
-  maxSpeed: 8
-  jumpForce: 1000
+  moveForce: 637.599976
+  maxSpeed: 5
+  jumpForce: 1777
 --- !u!82 &2086931170
 AudioSource:
   m_ObjectHideFlags: 0
