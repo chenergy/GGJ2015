@@ -12,7 +12,7 @@ public class PlayerControl : MonoBehaviour
 	public float moveForce = 637f;			// Amount of force added to move the player left and right.
 	public float maxSpeed = 7f;				// The fastest the player can travel in the x axis.
 	//public AudioClip[] jumpClips;			// Array of clips for when the player jumps.
-	public float jumpForce = 1777f;			// Amount of force added when the player jumps.
+	public float jumpForce = 2177f;			// Amount of force added when the player jumps.
 	//public AudioClip[] taunts;				// Array of clips for when the player taunts.
 	//public float tauntProbability = 50f;	// Chance of a taunt happening.
 	//public float tauntDelay = 1f;			// Delay for when the taunt should happen.
@@ -62,7 +62,14 @@ public class PlayerControl : MonoBehaviour
 	{
 		if (this.isAlive) {
 			// Cache the horizontal input.
-			float h = Input.GetAxis ("Horizontal");
+			// float h = Input.GetAxis ("Horizontal");
+			float h = 0f;
+			if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) {
+				h -= 1;
+			}
+			if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) {
+				h = +1;
+			}
 
 			// The Speed animator parameter is set to the absolute value of the horizontal input.
 			anim.SetFloat ("Speed", Mathf.Abs (h));
