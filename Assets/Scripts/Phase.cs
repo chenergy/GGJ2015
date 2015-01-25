@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Phase : MonoBehaviour {
 
@@ -14,8 +15,8 @@ public class Phase : MonoBehaviour {
 			collider2D.isTrigger = true;
 			gameObject.renderer.material.color = Color.black;
 			canPhase = false;
-			Invoke("unphase", 2);
-			Invoke("cooldown", 6);
+			Invoke("unphase", 1);
+			Invoke("cooldown", 3);
 		}
 	}
 

@@ -533,9 +533,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   jump: 0
-  moveForce: 365
-  maxSpeed: 8
-  jumpForce: 1000
+  moveForce: 637
+  maxSpeed: 7
+  jumpForce: 1777
+  phaseAnimation: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
