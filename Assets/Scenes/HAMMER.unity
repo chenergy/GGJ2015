@@ -198,7 +198,7 @@ GameObject:
   - 4: {fileID: 122056795}
   - 61: {fileID: 122056797}
   - 114: {fileID: 122056799}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HammerTrigger_Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -857,7 +857,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 251768899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 739ad9e3607b3b94f97644fea4fffa68, type: 3}
+  m_Script: {fileID: 11500000, guid: 1449889e6397b4777a4186cfa6cc6a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 596732178}
@@ -1050,11 +1050,11 @@ Prefab:
       objectReference: {fileID: 9100000, guid: e053f8a164fd44d9c8ed5ba565746c7c, type: 2}
     - target: {fileID: 6112168, guid: 58c47d93628f74e488e793cd9c5d5604, type: 2}
       propertyPath: m_Size.x
-      value: .400000006
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 6112168, guid: 58c47d93628f74e488e793cd9c5d5604, type: 2}
       propertyPath: m_Size.y
-      value: .400000006
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11412168, guid: 58c47d93628f74e488e793cd9c5d5604, type: 2}
@@ -1351,6 +1351,7 @@ GameObject:
   - 4: {fileID: 436227749}
   - 212: {fileID: 436227751}
   - 61: {fileID: 436227750}
+  - 114: {fileID: 436227753}
   - 114: {fileID: 436227752}
   m_Layer: 0
   m_Name: Stone Mallet
@@ -1381,7 +1382,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .400000006, y: .400000006}
+  m_Size: {x: .5, y: .5}
   m_Center: {x: .119999997, y: .119999997}
 --- !u!212 &436227751
 SpriteRenderer:
@@ -1411,6 +1412,19 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436227748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0654416aa43c34be583e9451accae85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hammerAnim: {fileID: 15313008}
+--- !u!114 &436227753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11480704, guid: 58c47d93628f74e488e793cd9c5d5604,
+    type: 2}
+  m_PrefabInternal: {fileID: 355434623}
   m_GameObject: {fileID: 436227748}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -2293,7 +2307,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 903088134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 739ad9e3607b3b94f97644fea4fffa68, type: 3}
+  m_Script: {fileID: 11500000, guid: 1449889e6397b4777a4186cfa6cc6a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 175307108}
@@ -4383,6 +4397,10 @@ Prefab:
       propertyPath: m_Size.y
       value: .600000024
       objectReference: {fileID: 0}
+    - target: {fileID: 187976, guid: 27b069624b04d4a418b35588851833a4, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11435094, guid: 27b069624b04d4a418b35588851833a4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 27b069624b04d4a418b35588851833a4, type: 2}
@@ -4419,7 +4437,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -4976,6 +4993,7 @@ MonoBehaviour:
   moveForce: 637
   maxSpeed: 8
   jumpForce: 1777
+  explosion: {fileID: 173354, guid: 364d3ab102884482d98a60f44d8e7601, type: 2}
   phaseAnimation: {fileID: 0}
 --- !u!1 &2048931626
 GameObject:

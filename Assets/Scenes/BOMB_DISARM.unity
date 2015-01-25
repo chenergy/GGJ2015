@@ -9211,6 +9211,7 @@ MonoBehaviour:
   moveForce: 637
   maxSpeed: 7
   jumpForce: 1777
+  explosion: {fileID: 173354, guid: 364d3ab102884482d98a60f44d8e7601, type: 2}
 --- !u!114 &2086931166
 MonoBehaviour:
   m_ObjectHideFlags: 0
