@@ -7,6 +7,9 @@ public class PlayerPhaseController : MonoBehaviour {
 	
 	public GameObject phaseAnimation;
 
+	public AudioClip phaseBeginClip;
+	public AudioClip phaseReadyClip;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -15,7 +18,9 @@ public class PlayerPhaseController : MonoBehaviour {
 	void FixedUpdate(){
 		if (Input.GetKeyDown(KeyCode.Space) && canPhase) {
 			canPhase = false;
-			transform.FindChild ("body").renderer.material.color = Color.black;
+			gameObject.renderer.material.color = Color.black;
+			// GameManager.Instance.PlayClipAtLocation(phaseBeginClip, gameObject.transform.position);
+			audio.PlayOneShot(phaseBeginClip, 4.0f);
 			if( this.phaseAnimation != null ) {
 				Instantiate(this.phaseAnimation, transform.position, Quaternion.identity);
 			}
@@ -29,11 +34,13 @@ public class PlayerPhaseController : MonoBehaviour {
 	}
 
 void endPhase() {
-	transform.FindChild("body").renderer.material.color = Color.red;
+	gameObject.renderer.material.color = Color.gray;
 }
 
-void cooldownPhase() {
-	transform.FindChild("body").renderer.material.color = Color.white;
-	canPhase = true;
-}
+	void cooldownPhase() {
+		//GameManager.Instance.PlayClipAtLocation(phaseReadyClip, gameObject.transform.position);
+		audio.PlayOneShot(phaseReadyClip, 3.4f);
+		gameObject.renderer.material.color = Color.white;
+		canPhase = true;
+	}
 }

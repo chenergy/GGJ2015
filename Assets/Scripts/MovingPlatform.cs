@@ -19,12 +19,7 @@ public class MovingPlatform : MonoBehaviour
 	private float timeCounter;
 	
 	private int moveDirection;
-	
-	private bool isColliding = false;
-	
-	
-	
-	
+
 	
 	void Start ()
 	{
@@ -50,44 +45,12 @@ public class MovingPlatform : MonoBehaviour
 			moveDirection *= -1;
 			
 		}
-		
-	}
-	
-	
-	
-	void OnCollisionStay2D (Collision2D coll)
-	{
-		
-		if ((!isColliding) && (coll.gameObject.tag == "Player")) {
-			
-			isColliding = true;
-			
-		}
-		
-	}
-	
-	
-	
-	void OnCollisionExit2D (Collision2D coll)
-	{
-		
-		if ((isColliding) && (coll.gameObject.tag == "Player")) {
-			
-			isColliding = false;
-			
-		}
-		
 	}
 
 	
 	void FixedUpdate ()
 	{
 		rigidbody2D.velocity = moveSpeed * moveDirection;
-		
-		if ((isColliding)) {	
-			player.rigidbody2D.velocity = rigidbody2D.velocity;
-		}								
-		
 	}
 	
 	

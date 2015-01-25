@@ -40,7 +40,7 @@ public class HammerTrigger_Movable : A_HammerTrigger
 			StepForward ();
 		} else if (!isGoingForward && (currentVector != startVector)) {
 			StepBackward ();
-		} else if (!isGoingForward && (resetTime > 0)) {
+		} else if (!isGoingForward && (maxTime > 0)) {
 			StepResetTime();
 		}
 	}
