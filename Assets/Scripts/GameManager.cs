@@ -11,7 +11,7 @@ public enum CurrentLevel {
 	CUTSCENE_0,
 	CUTSCENE_1,
 	CUTSCENE_2,
-	FINAL
+	END
 }
 
 
@@ -43,15 +43,12 @@ public class GameManager : MonoBehaviour {
 
 	private int level = 0;
 
-	private CurrentLevel[] levelList = new CurrentLevel [8] {
-		CurrentLevel.START,
-		CurrentLevel.HAMMER,
+	private CurrentLevel[] levelList = new CurrentLevel [5] {
+		CurrentLevel.CUTSCENE_0,
 		CurrentLevel.GRAVITY,
 		CurrentLevel.BOMB_DISARM,
-		CurrentLevel.CUTSCENE_0,
-		CurrentLevel.CUTSCENE_1,
-		CurrentLevel.CUTSCENE_2,
-		CurrentLevel.FINAL
+		CurrentLevel.HAMMER,
+		CurrentLevel.END
 	};
 
 	//private Dictionary <string, AudioClip> levelBGMDict = new Dictionary<string, AudioClip> ();
@@ -85,7 +82,7 @@ public class GameManager : MonoBehaviour {
 					this.audio.PlayBackgroundMusic (this.levelBGMDict [newLevel], true);
 			}*/
 
-			Application.LoadLevel (newLevel);
+			StartCoroutine (instance.GoToNextLevelRoutine (newLevel));
 		}
 	}
 
@@ -103,6 +100,45 @@ public class GameManager : MonoBehaviour {
 			Application.LoadLevel (newLevel);
 		}
 	}
+
+
+
+	IEnumerator GoToNextLevelRoutine (string newLevel){
+		float timer = 0.0f;
+		float spinTime = 1.0f;
+
+		GameObject player = GameObject.FindGameObjectWithTag ("Player");
+
+		if (player.GetComponent <PlayerControl> () != null)
+			player.GetComponent <PlayerControl> ().enabled = false;
+
+		if (player.GetComponent <PlayerControlGravity> () != null)
+			player.GetComponent <PlayerControlGravity> ().enabled = false;
+
+		if (player.GetComponent <Animator> () != null)
+			player.GetComponent <Animator> ().enabled = false;
+
+		player.collider2D.enabled = false;
+		player.rigidbody2D.isKinematic = true;
+
+		this.FadeOut ();
+
+		if (player != null) {
+			while (timer < spinTime) {
+				yield return new WaitForEndOfFrame ();
+				timer += Time.deltaTime;
+
+				player.transform.Rotate (new Vector3 (0, 50 * timer, 0));
+			}
+		}
+
+		Application.LoadLevel (newLevel);
+
+		this.FadeIn ();
+	}
+
+
+
 
 	public void FadeOut (){
 		StartCoroutine ("FadeOutRoutine");
