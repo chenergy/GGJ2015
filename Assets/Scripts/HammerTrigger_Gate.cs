@@ -20,8 +20,6 @@ public class HammerTrigger_Gate : A_HammerTrigger
 
 	protected override void OnHammerHit ()
 	{
-		base.OnHammerHit ();
-
 		StartCoroutine ("MoveToEndPoint");
 	}
 
