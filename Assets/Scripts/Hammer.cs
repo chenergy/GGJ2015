@@ -25,7 +25,7 @@ public class Hammer : MonoBehaviour
 
 	IEnumerator HammerDown () {
 		float timer = 0.0f;
-		float maxTime = 1.0f;
+		float maxTime = 0.2f;
 
 		this.isHammering = true;
 		this.hammerAnim.SetBool ("isHammering", true);
