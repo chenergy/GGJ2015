@@ -43,7 +43,7 @@ GameObject:
   - 212: {fileID: 21293386}
   - 61: {fileID: 6193386}
   m_Layer: 12
-  m_Name: Horizontal Platform
+  m_Name: Horizontal PlatformGravity
   m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,8 +56,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.86999989, y: .0600006804, z: 0}
-  m_LocalScale: {x: 1, y: 2.8499999, z: 1}
+  m_LocalPosition: {x: -4.82000017, y: .0600006804, z: 0}
+  m_LocalScale: {x: 1, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 493386}
   m_RootOrder: 1
@@ -68,8 +68,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.3499999, y: .0599999987, z: 0}
-  m_LocalScale: {x: 1, y: 2.8499999, z: 1}
+  m_LocalPosition: {x: 4.30000019, y: .0599999987, z: 0}
+  m_LocalScale: {x: 1, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 493386}
   m_RootOrder: 0
@@ -79,9 +79,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193386}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.9399996, y: -1.29999995, z: 0}
-  m_LocalScale: {x: 2.54251671, y: .672598302, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: -4.37113883e-08}
+  m_LocalPosition: {x: 36.2214241, y: -6.00970411, z: 0}
+  m_LocalScale: {x: .501887977, y: .53521502, z: 1}
   m_Children:
   - {fileID: 455732}
   - {fileID: 416532}
@@ -96,8 +96,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 1debb068374764196a01e1c69c1f413f, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: .268488348, y: .978287518}
-  m_Center: {x: -.321860313, y: -.0108565828}
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
 --- !u!61 &6155732
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -107,8 +107,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 1debb068374764196a01e1c69c1f413f, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: .133146659, y: .976961136}
-  m_Center: {x: .391662121, y: -.0115198316}
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
 --- !u!61 &6193386
 BoxCollider2D:
   m_ObjectHideFlags: 1
