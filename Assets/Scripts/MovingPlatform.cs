@@ -28,9 +28,6 @@ public class MovingPlatform : MonoBehaviour
 	
 	void Start ()
 	{
-		
-		
-		
 		timeCounter = 0;
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
 		moveDirection = 1;
@@ -81,16 +78,10 @@ public class MovingPlatform : MonoBehaviour
 		}
 		
 	}
-	
-	
-	
-	
-	
-	
+
 	
 	void FixedUpdate ()
 	{
-		
 		rigidbody2D.velocity = moveSpeed * moveDirection;
 		
 		if ((isColliding)) {	
