@@ -27,7 +27,7 @@ GameObject:
   - 212: {fileID: 21293386}
   - 61: {fileID: 6193386}
   m_Layer: 12
-  m_Name: wall
+  m_Name: Horizontal Platform
   m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

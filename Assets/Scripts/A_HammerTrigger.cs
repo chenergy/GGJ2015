@@ -11,15 +11,20 @@ public abstract class A_HammerTrigger : MonoBehaviour
 
 	void OnTriggerStay2D (Collider2D other){
 		Hammer hammer = other.GetComponent <Hammer> ();
-		if (hammer != null)
-			if (hammer.IsHammering && !this.triggered)
+		if (hammer != null) {
+			if (hammer.IsHammering && !this.triggered) {
+				this.triggered = true;
+
+				if (this.clockPrefab != null) {
+					GameObject newClock = GameObject.Instantiate (this.clockPrefab, this.transform.position + Vector3.up * 2, Quaternion.identity) as GameObject;
+					newClock.transform.parent = this.transform;
+				}
+
 				this.OnHammerHit ();
+			}
+		}
 	}
 
-	protected virtual void OnHammerHit (){
-		this.triggered = true;
-
-		GameObject.Instantiate (this.clockPrefab, this.transform.position + Vector3.up * 2, Quaternion.identity);
-	}
+	protected abstract void OnHammerHit ();
 }
 
