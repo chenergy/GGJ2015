@@ -534,7 +534,7 @@ MonoBehaviour:
   facingRight: 1
   jump: 0
   moveForce: 637
-  maxSpeed: 5
+  maxSpeed: 7
   jumpForce: 1777
   phaseAnimation: {fileID: 0}
 --- !u!212 &21200000
