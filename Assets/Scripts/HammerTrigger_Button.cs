@@ -31,8 +31,6 @@ public class HammerTrigger_Button : A_HammerTrigger
 
 	protected override void OnHammerHit ()
 	{
-		base.OnHammerHit ();
-
 		if (this.currentState != this.prevState) {
 			this.currentState = prevState;
 
