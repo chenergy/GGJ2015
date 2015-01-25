@@ -7,20 +7,14 @@ public class HammerTrigger_Rotation : A_HammerTrigger
 	public float beginAngle;
 	public float finalAngle;
 	private bool isGoingForward;
-	public int numRotations;
 
 	public int rotationSign;
 	private SpriteRenderer spriteRenderer;
-	private int currentRotation;
-	private float correctedFinalAngle;
-	private float correctedCurrentAngle;
+
 	// Use this for initialization
 	void Start ()
 	{
 		isGoingForward = true;
-		currentRotation = 0;
-		correctedFinalAngle = numRotations * 360 + finalAngle;
-		correctedCurrentAngle = this.transform.rotation.eulerAngles.z;
 		if (beginAngle > 180) {
 			beginAngle -= 360;
 		} 
