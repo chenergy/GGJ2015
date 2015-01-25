@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LevelTrigger : MonoBehaviour {
+public class LevelTriggerGravity : MonoBehaviour {
 
 	float onEnter = 0;
 	float onExit = 0;
