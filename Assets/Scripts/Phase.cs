@@ -19,7 +19,7 @@ public class Phase : MonoBehaviour {
 			gameObject.renderer.material.color = Color.black;
 			canPhase = false;
 			Invoke("unphase", 1);
-			Invoke("cooldown", 3);
+			Invoke("cooldown", 2);
 		}
 	}
 

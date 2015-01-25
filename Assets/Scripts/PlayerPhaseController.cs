@@ -20,7 +20,7 @@ public class PlayerPhaseController : MonoBehaviour {
 				Instantiate(this.phaseAnimation, transform.position, Quaternion.identity);
 			}
 			Invoke ("endPhase", 1);
-			Invoke("cooldownPhase", 3);
+			Invoke("cooldownPhase", 2);
 		}
 	}
 	// Update is called once per frame
