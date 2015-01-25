@@ -15,6 +15,8 @@ public abstract class A_HammerTrigger : MonoBehaviour
 			if (hammer.IsHammering && !this.triggered) {
 				this.triggered = true;
 
+				hammer.HammerConnected ();
+
 				if (this.clockPrefab != null) {
 					GameObject newClock = GameObject.Instantiate (this.clockPrefab, this.transform.position + Vector3.up * 2, Quaternion.identity) as GameObject;
 					newClock.transform.parent = this.transform;
