@@ -45,9 +45,9 @@ public class PlayerControl : MonoBehaviour
 			// If the jump button is pressed and the player is grounded then the player should jump.
 			/*if(Input.GetButtonDown("Jump") && grounded)
 			jump = true;*/
-			if (Input.GetKeyDown (KeyCode.UpArrow) && grounded && (Time.time > lastJump + 0.5f)){
+			if ((Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.W)) && grounded && (Time.time > lastJump + 0.5f)){
 				Debug.Log( lastJump);
-				lastJump = Time.time;
+				lastJump = Time.time;	
 				jump = true;
 			}
 		}
