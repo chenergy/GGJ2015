@@ -118,8 +118,11 @@ public class GameManager : MonoBehaviour {
 		if (player.GetComponent <Animator> () != null)
 			player.GetComponent <Animator> ().enabled = false;
 
-		player.collider2D.enabled = false;
-		player.rigidbody2D.isKinematic = true;
+		if (player.GetComponent <Collider2D> () != null)
+			player.collider2D.enabled = false;
+
+		if (player.GetComponent <Rigidbody2D> () != null)
+			player.rigidbody2D.isKinematic = true;
 
 		this.FadeOut ();
 
