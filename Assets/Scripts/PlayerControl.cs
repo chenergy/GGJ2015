@@ -19,6 +19,9 @@ public class PlayerControl : MonoBehaviour
 
 	public GameObject explosion;
 
+	public AudioClip jumpClip;
+	public AudioClip explosionClip;
+
 	//private int tauntIndex;					// The index of the taunts array indicating the most recent taunt.
 	private Transform groundCheck;			// A position marking where to check if the player is grounded.
 	private bool grounded = false;			// Whether or not the player is grounded.
@@ -49,6 +52,8 @@ public class PlayerControl : MonoBehaviour
 				Debug.Log( lastJump);
 				lastJump = Time.time;	
 				jump = true;
+
+				GameManager.Instance.PlayClipAtLocation (this.jumpClip, this.transform.position);
 			}
 		}
 	}
@@ -134,6 +139,8 @@ public class PlayerControl : MonoBehaviour
 				GameObject newExplosion = GameObject.Instantiate (this.explosion, this.transform.position, Quaternion.identity) as GameObject;
 
 				GameObject.Destroy (newExplosion, 0.27f);
+
+				GameManager.Instance.PlayClipAtLocation (this.explosionClip, this.transform.position);
 
 				StartCoroutine ("ResetLevel", 1.0f);
 			}

@@ -27,7 +27,6 @@ GameObject:
   - 212: {fileID: 21212168}
   - 61: {fileID: 6112168}
   - 114: {fileID: 11480704}
-  - 114: {fileID: 11418600}
   m_Layer: 0
   m_Name: Stone Mallet
   m_TagString: Untagged
@@ -92,8 +91,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.131001, y: .796999514, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: .629999995, y: .879999995, z: 0}
+  m_LocalScale: {x: .200000003, y: .200000003, z: 1}
   m_Children: []
   m_Father: {fileID: 412168}
   m_RootOrder: 0
@@ -104,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.9300003, y: 3.1099999, z: -1}
+  m_LocalPosition: {x: -17.5, y: 3.31999993, z: -1}
   m_LocalScale: {x: .400000006, y: .400000006, z: 1}
   m_Children:
   - {fileID: 412178}
@@ -158,8 +157,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .300000012, y: .300000012}
-  m_Center: {x: .119999997, y: .119999997}
+  m_Size: {x: 6, y: 4}
+  m_Center: {x: -.0599999987, y: 3}
 --- !u!61 &6112170
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -253,7 +252,7 @@ Animator:
   m_GameObject: {fileID: 112192}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1ad1c509ffb314b2b933a73b401aae26, type: 2}
+  m_Controller: {fileID: 9100000, guid: c34290738cf58436f921b978387228dd, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -274,22 +273,10 @@ MonoBehaviour:
   jump: 0
   moveForce: 637
   maxSpeed: 7
-  jumpForce: 1777
+  jumpForce: 2500
   explosion: {fileID: 173354, guid: 364d3ab102884482d98a60f44d8e7601, type: 2}
---- !u!114 &11418600
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0654416aa43c34be583e9451accae85a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hammerAnim: {fileID: 9512168}
-  hammerCollider: {fileID: 0}
-  hammerParticle: {fileID: 0}
+  jumpClip: {fileID: 8300000, guid: 2aa967c862f35443fa24c156818ec9df, type: 3}
+  explosionClip: {fileID: 8300000, guid: fb6b05973ad4b4de49dadaf064de2ebc, type: 3}
 --- !u!114 &11480704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -304,6 +291,7 @@ MonoBehaviour:
   hammerAnim: {fileID: 9512168}
   hammerCollider: {fileID: 412170}
   hammerParticle: {fileID: 199710, guid: 24e2ed4374df5481d850324f6af74fc2, type: 2}
+  hammerClip: {fileID: 8300000, guid: 3ddcc588d560d435a9f33c39ab3f0e54, type: 3}
 --- !u!212 &21212168
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -324,7 +312,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 23a6b63c8cfc246efabb7d69ca1c26e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5e3b745ca122c478b901c25c9c501649, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21218600
 SpriteRenderer:
