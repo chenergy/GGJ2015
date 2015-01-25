@@ -5,7 +5,9 @@ public class LevelTriggerGravity : MonoBehaviour {
 
 	float onEnter = 0;
 	float onExit = 0;
+	bool enteredLevel2 = false;
 
+	
 	// Use this for initialization
 	void Start () 
 	{
@@ -27,6 +29,7 @@ public class LevelTriggerGravity : MonoBehaviour {
 			if(transform.name.Contains("leverLevel_"))
 			{
 				transform.renderer.enabled = false;
+				LeverTriggerAction(other);
 			}
 			//Debug.Log ("Player is: " + player.ToString ());
 			//Debug.Log ("Level Entered" + transform.name + " by object --> " + other.name);
@@ -37,25 +40,25 @@ public class LevelTriggerGravity : MonoBehaviour {
 	{
 		if(other.tag.Equals ("Player"))
 		{
+			PlayerControlGravity player = (PlayerControlGravity) other.gameObject.GetComponent ("PlayerControlGravity");
+
 			onExit = other.rigidbody2D.velocity.y;
 			bool sameDirection = CheckSameDirection (onEnter, onExit); //Find if its a true floor level change
-			PlayerControlGravity player = (PlayerControlGravity) other.gameObject.GetComponent ("PlayerControlGravity");
 
 			if(sameDirection && !transform.name.Equals("Level4Trigger"))
 			{
 				//find out if up or down level, we would have to call player control floorSettings()
 				//Debug.Log ("Name before switch! : " + transform.name);
-				if(transform.name.Equals("leverLevel_1_1"))
-				{
-					Debug.Log("Lever was pressed!");
-					Destroy(GameObject.Find("Destroy_1"));
-				}
-				else if(transform.name.Equals("Level2Trigger"))
+				if(transform.name.Equals("Level2Trigger"))
 				{
 					if(onExit < 0.0)
 						player.floorSettings(1);
-					else
+					else 
+					{
 						player.floorSettings(2); // switching between floors 1 and 2
+						if(!enteredLevel2)
+							Time.timeScale = 0; enteredLevel2 = true;
+					}
 				}
 				else
 				{	if(onExit < 0.0)
@@ -69,9 +72,6 @@ public class LevelTriggerGravity : MonoBehaviour {
 				//Debug.Log ("Gravity Scale: " + other.rigidbody2D.gravityScale);
 				float random = Random.Range(0, 100);
 
-				//if(random == 0) random = 1;
-				//if(other.rigidbody2D.gravityScale < .2f || other.rigidbody2D.gravityScale > 3) other.rigidbody2D.gravityScale = 1;
-
 				player.FlipVertical(50, random, 1);
 
 				//Debug.Log ("Random Number: " + random);
@@ -80,6 +80,21 @@ public class LevelTriggerGravity : MonoBehaviour {
 		}
 	}
 
+	void LeverTriggerAction(Collider2D other)
+	{
+		if(transform.name.Equals("leverLevel_1_1"))
+			Destroy(GameObject.Find("Destroy_1"));
+		if(transform.name.Equals("leverLevel_1_2"))//TODO: remove if not have time for moving platform for level 1 --> 2
+		{
+			//MovingPlatform platform = (MovingPlatform) GameObject.Find ("wall(moving)Gravity").GetComponent("MovingPlatform");
+			//platform.moveSpeed.y = 25;
+		}
+		//PlayerControl player = (PlayerControl) other.gameObject.GetComponent ("PlayerControl");
+		//CheckPointController checkPoint = (CheckPointController) GameObject.Find("CheckPointManager").GetComponent("CheckPointController");
+		//checkPoint.lastCheckpointPosition = other.transform.position;
+		//Debug.Log ("last checkpoint position: " + checkPoint.lastCheckpointPosition);
+	}
+	
 	bool CheckSameDirection(float enter, float exit)
 	{
 		if(enter == 0)
