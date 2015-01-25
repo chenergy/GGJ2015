@@ -63,8 +63,6 @@ public class HammerTrigger_Rotation : A_HammerTrigger
 
 	protected override void OnHammerHit ()
 	{
-		base.OnHammerHit ();
-		
 		Debug.Log ("Hammer has hit button");
 		isGoingForward = false;
 	}
