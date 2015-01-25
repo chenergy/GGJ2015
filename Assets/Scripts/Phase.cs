@@ -16,7 +16,8 @@ public class Phase : MonoBehaviour {
 			foreach(Transform child in transform) {
 				child.collider2D.isTrigger = true;
 			}
-			gameObject.renderer.material.color = Color.black;
+
+			gameObject.renderer.material.color = new Color(1f,1f,1f,.5f);
 			canPhase = false;
 			Invoke("unphase", 1);
 			Invoke("cooldown", 2);
