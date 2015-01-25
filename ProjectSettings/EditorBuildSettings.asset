@@ -10,8 +10,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BOMB_DISARM.unity
   - enabled: 1
-    path: Assets/Scenes/GRAVITY.unity
-  - enabled: 1
     path: Assets/Scenes/GravityScene_1.0.unity
   - enabled: 1
     path: Assets/Scenes/HAMMER.unity
+  - enabled: 1
+    path: Assets/Scenes/CUTSCENE_0.unity
+  - enabled: 1
+    path: Assets/Scenes/CUTSCENE_1.unity
+  - enabled: 1
+    path: Assets/Scenes/CUTSCENE_2.unity
+  - enabled: 1
+    path: Assets/Scenes/GRAVITY.unity
