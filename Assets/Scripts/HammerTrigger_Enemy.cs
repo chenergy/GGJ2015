@@ -7,13 +7,17 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 	public Collider2D enemyCollider;
 	public Animator enemyAnimator;
 
-	public Transform patrolTarget1;
-	public Transform patrolTarget2;
+	public Transform patrolTarget_L;
+	public Transform patrolTarget_R;
 
 	public bool startAlive = true;
 
+	public float speed = 1.0f;
+
 	private bool isAlive = true;
 	private Transform curTarget;
+
+
 
 
 	void Start (){
@@ -26,20 +30,63 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 			this.Die ();
 		}
 
-		this.curTarget = this.patrolTarget1;
+		this.curTarget = this.patrolTarget_L;
 	}
 
 
 	void Update (){
+		//this.enemyTransform.position += new Vector3 (1.0f, 0.0f, 0.0f);
 		if (this.isAlive) {
-			if (this.patrolTarget1.transform.position.x > this.enemyTransform.position.x) { // right of enemy
+			if (this.curTarget == this.patrolTarget_L) {
+				if (this.enemyTransform.position.x < this.patrolTarget_L.position.x) {
+					this.enemyTransform.position = this.patrolTarget_L.position;
 
-			} else {
+					StartCoroutine ("ChangeTargetRoutine", this.patrolTarget_R);
+				} else if (this.enemyTransform.position.x > this.patrolTarget_L.position.x) {
+					this.enemyTransform.position += Vector3.left * speed;
+					this.enemyAnimator.SetBool ("isMoving", true);
+				}
+			} else if (this.curTarget == this.patrolTarget_R) {
+				if (this.enemyTransform.position.x > this.patrolTarget_R.position.x) {
+					this.enemyTransform.position = this.patrolTarget_R.position;
+
+					StartCoroutine ("ChangeTargetRoutine", this.patrolTarget_L);
+				} else if (this.enemyTransform.position.x < this.patrolTarget_R.position.x) {
+					this.enemyTransform.position += Vector3.right * speed;
+					this.enemyAnimator.SetBool ("isMoving", true);
+				}
 			}
-			//this.transform.position += new Vector3 (this.patrolTarget1.transform.position.x - this.enemyTransform.position.x, 
 		}
 	}
 
+
+	IEnumerator ChangeTargetRoutine (Transform newTarget){
+		float timer = 0.0f;
+		float waitTime = 1.0f;
+
+		this.enemyAnimator.SetBool ("isMoving", false);
+
+		while (timer < waitTime) {
+			yield return new WaitForEndOfFrame ();
+			timer += Time.deltaTime;
+		}
+
+		this.ChangeTarget (newTarget);
+
+		this.enemyAnimator.SetBool ("isMoving", true);
+	}
+
+
+	private void ChangeTarget (Transform newTarget){
+		this.curTarget = newTarget;
+
+		if (this.curTarget.transform.position.x > this.enemyTransform.position.x) { // right of enemy
+			this.enemyTransform.localScale = new Vector3 (-5, 5, 1);
+		} else {
+			this.enemyTransform.localScale = new Vector3 (5, 5, 1);
+		}
+		//this.transform.position += new Vector3 (this.patrolTarget1.transform.position.x - this.enemyTransform.position.x, 
+	}
 
 
 	protected override void OnHammerHit ()
