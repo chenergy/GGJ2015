@@ -399,8 +399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1db2dcf8fdd7d343b122e88e174f07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxXAndY: {x: 100, y: 100}
-  minXAndY: {x: -100, y: -100}
+  maxXAndY: {x: 500, y: 500}
+  minXAndY: {x: -500, y: -500}
 --- !u!114 &11425902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -466,6 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:

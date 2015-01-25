@@ -178,6 +178,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void PlayClipAtLocation (AudioClip clip, Vector3 position){
-		this.audio.PlayClipAtLocation (clip, position);
+		if (clip != null)
+			this.audio.PlayClipAtLocation (clip, position);
 	}
 }
