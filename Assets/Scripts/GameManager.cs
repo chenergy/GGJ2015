@@ -45,8 +45,8 @@ public class GameManager : MonoBehaviour {
 
 	private CurrentLevel[] levelList = new CurrentLevel [5] {
 		CurrentLevel.CUTSCENE_0,
-		CurrentLevel.GRAVITY,
 		CurrentLevel.BOMB_DISARM,
+		CurrentLevel.GRAVITY,
 		CurrentLevel.HAMMER,
 		CurrentLevel.END
 	};
