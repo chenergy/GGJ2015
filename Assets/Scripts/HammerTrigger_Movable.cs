@@ -9,16 +9,20 @@ public class HammerTrigger_Movable : A_HammerTrigger
 	public Transform beginTransform;
 	public Transform finalTransform;
 	public bool startAtEnd;
+	public float maxTime;
 
 	public Vector2 startVector;
 	public Vector2 endVector; 
 
+
 	private SpriteRenderer spriteRenderer;
 	private bool isGoingForward;
 	private Vector2 currentVector;
+	private float resetTime;
 
 	void Start (){
 		isGoingForward = true;
+		resetTime = 0;
 		startVector = beginTransform.position;
 		endVector = finalTransform.position;
 		if (!startAtEnd) {
@@ -32,10 +36,12 @@ public class HammerTrigger_Movable : A_HammerTrigger
 
 	void Update(){
 		//this.GetComponent<Transform> ();
-		if (isGoingForward &&(currentVector!=endVector)) {
-			StepForward();
-		} else if(!isGoingForward &&(currentVector!=startVector) ) {
-			StepBackward();
+		if (isGoingForward && (currentVector != endVector)) {
+			StepForward ();
+		} else if (!isGoingForward && (currentVector != startVector)) {
+			StepBackward ();
+		} else if (!isGoingForward) {
+			StepResetTime();
 		}
 	}
 	
@@ -61,6 +67,14 @@ public class HammerTrigger_Movable : A_HammerTrigger
 		}
 	}
 
+	void StepResetTime(){
+		resetTime += Time.deltaTime;
+		if (resetTime >= maxTime) {
+			resetTime = 0;
+			isGoingForward = true;
+			this.triggered = false;
+		}
+	}
 
 	protected override void OnHammerHit ()
 	{
