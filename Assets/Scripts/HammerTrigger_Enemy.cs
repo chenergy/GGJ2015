@@ -10,7 +10,7 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 	public Transform patrolTarget_L;
 	public Transform patrolTarget_R;
 
-	public GameObject explosion;
+//	public GameObject explosion;
 
 	public bool startAlive = true;
 
@@ -184,7 +184,7 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 
 		this.triggered = false;
 	}
-
+	/*
 	void OnCollisionEnter2D (Collision2D other){
 		PlayerControl player = other.gameObject.GetComponent <PlayerControl> ();
 
@@ -210,6 +210,6 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 		}
 
 		Application.LoadLevel ("HAMMER");
-	}
+	}*/
 }
 

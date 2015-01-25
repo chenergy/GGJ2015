@@ -536,6 +536,7 @@ MonoBehaviour:
   moveForce: 637
   maxSpeed: 7
   jumpForce: 1777
+  explosion: {fileID: 173354, guid: 364d3ab102884482d98a60f44d8e7601, type: 2}
   phaseAnimation: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:

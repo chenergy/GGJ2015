@@ -7274,7 +7274,7 @@ Transform:
   m_PrefabParentObject: {fileID: 445412, guid: 49aefe2d1f9bc804e88f8b487cb45990, type: 2}
   m_PrefabInternal: {fileID: 1442847745}
   m_GameObject: {fileID: 1682385836}
-  m_LocalRotation: {x: 0, y: 0, z: .707202435, w: -.707011223}
+  m_LocalRotation: {x: 0, y: 0, z: .707202375, w: -.707011163}
   m_LocalPosition: {x: 39.2999992, y: -40.2000008, z: 0}
   m_LocalScale: {x: 2.43201256, y: -.958168924, z: 1}
   m_Children: []
@@ -8655,6 +8655,7 @@ MonoBehaviour:
   moveForce: 637
   maxSpeed: 7
   jumpForce: 1777
+  explosion: {fileID: 173354, guid: 364d3ab102884482d98a60f44d8e7601, type: 2}
   phaseAnimation: {fileID: 0}
 --- !u!82 &2086931170
 AudioSource:
