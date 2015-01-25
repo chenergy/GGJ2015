@@ -64,10 +64,10 @@ public class PlayerControl : MonoBehaviour
 			// Cache the horizontal input.
 			// float h = Input.GetAxis ("Horizontal");
 			float h = 0f;
-			if (Input.GetKey(KeyCode.LeftArrow)) {
+			if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) {
 				h -= 1;
 			}
-			if (Input.GetKey(KeyCode.RightArrow)) {
+			if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) {
 				h = +1;
 			}
 
