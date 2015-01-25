@@ -12,7 +12,7 @@ GameObject:
   - 61: {fileID: 6159584}
   - 114: {fileID: 11459584}
   m_Layer: 12
-  m_Name: wall (phasing) 1
+  m_Name: Horizontal Phasing Platform
   m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
