@@ -10,6 +10,8 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 	public Transform patrolTarget_L;
 	public Transform patrolTarget_R;
 
+	public GameObject explosion;
+
 	public bool startAlive = true;
 
 	public float speed = 1.0f;
@@ -24,9 +26,14 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 		this.isAlive = this.startAlive;
 
 		if (this.startAlive) {
-			this.enemyCollider.isTrigger = false;
+<<<<<<< HEAD
+
 		} else {
-			this.enemyCollider.isTrigger = true;
+=======
+			//this.enemyCollider.isTrigger = false;
+		} else {
+			//this.enemyCollider.isTrigger = true;
+>>>>>>> origin/master
 			this.Die ();
 		}
 
@@ -91,9 +98,15 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 
 	protected override void OnHammerHit ()
 	{
-		base.OnHammerHit ();
+		if (!this.isAlive) {
+			this.ReturnToLife ();
+		} else {
+			if (!this.triggered) {
+				StartCoroutine ("Knockback");
+			}
+		}
 
-		this.ReturnToLife ();
+		base.OnHammerHit ();
 	}
 
 
@@ -108,6 +121,36 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 	}
 
 
+	IEnumerator Knockback (){
+		float timer = 0.0f;
+		float maxTime = 1.0f;
+
+		this.triggered = true;
+		this.isAlive = false;
+
+		Vector3 targetDirection = Vector3.left;
+		if (this.curTarget == this.patrolTarget_L)
+			targetDirection = Vector3.right;
+		else if (this.curTarget == this.patrolTarget_R)
+			targetDirection = Vector3.left;
+
+		//this.enemyAnimator.enabled = false;
+
+		while (timer < maxTime) {
+			yield return new WaitForEndOfFrame ();
+			timer += Time.deltaTime;
+
+			this.enemyTransform.position += targetDirection * this.speed;
+		}
+
+		this.isAlive = true;
+		//this.enemyAnimator.enabled = true;
+
+		this.triggered = false;
+	}
+
+
+
 	IEnumerator DieRoutine (){
 		float timer = 0.0f;
 		float maxTimer = 0.5f;
@@ -119,7 +162,10 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 			timer += Time.deltaTime;
 		}
 
-		this.enemyCollider.isTrigger = true;
+<<<<<<< HEAD
+=======
+		//this.enemyCollider.isTrigger = true;
+>>>>>>> origin/master
 
 		this.enemyAnimator.SetBool ("isDying", false);
 
@@ -138,11 +184,43 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 			timer += Time.deltaTime;
 		}
 
-		this.enemyCollider.isTrigger = false;
+<<<<<<< HEAD
+=======
+		//this.enemyCollider.isTrigger = false;
+>>>>>>> origin/master
 
 		this.enemyAnimator.SetBool ("isReturning", false);
 
 		this.isAlive = true;
+
+		this.triggered = false;
+	}
+
+	void OnCollisionEnter2D (Collision2D other){
+		PlayerControl player = other.gameObject.GetComponent <PlayerControl> ();
+
+		if (player != null) {
+			player.gameObject.SetActive (false);
+
+			if (this.explosion != null) {
+				GameObject newExplosion = GameObject.Instantiate (this.explosion, player.transform.position, Quaternion.identity) as GameObject;
+
+				GameObject.Destroy (newExplosion, 0.27f);
+
+				StartCoroutine ("ResetLevel", 1.0f);
+			}
+		}
+	}
+
+	IEnumerator ResetLevel (float delay){
+		float timer = 0.0f;
+
+		while (timer < delay) {
+			yield return new WaitForEndOfFrame ();
+			timer += Time.deltaTime;
+		}
+
+		Application.LoadLevel ("HAMMER");
 	}
 }
 
