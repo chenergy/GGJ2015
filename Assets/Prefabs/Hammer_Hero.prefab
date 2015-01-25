@@ -418,7 +418,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .400000006, y: .400000006}
+  m_Size: {x: .5, y: .5}
   m_Center: {x: .119999997, y: .119999997}
 --- !u!61 &6112170
 BoxCollider2D:
@@ -594,7 +594,6 @@ MonoBehaviour:
   maxSpeed: 8
   jumpForce: 1777
   explosion: {fileID: 173354, guid: 364d3ab102884482d98a60f44d8e7601, type: 2}
-  phaseAnimation: {fileID: 0}
 --- !u!114 &11480704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -607,6 +606,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hammerAnim: {fileID: 9512168}
+  hammerCollider: {fileID: 412170}
+  hammerParticle: {fileID: 199710, guid: 24e2ed4374df5481d850324f6af74fc2, type: 2}
 --- !u!212 &21212168
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -13,16 +13,22 @@ public class Phase : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Space) && canPhase) {
 			collider2D.isTrigger = true;
+			foreach(Transform child in transform) {
+				child.collider2D.isTrigger = true;
+			}
 			gameObject.renderer.material.color = Color.black;
 			canPhase = false;
 			Invoke("unphase", 1);
-			Invoke("cooldown", 3);
+			Invoke("cooldown", 2);
 		}
 	}
 
 	void unphase() {
 		gameObject.renderer.material.color = Color.white;
 		collider2D.isTrigger = false;
+		foreach(Transform child in transform) {
+			child.collider2D.isTrigger = false;
+		}
 	}
 
 	void cooldown() {

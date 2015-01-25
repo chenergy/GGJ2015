@@ -9,6 +9,12 @@ public class Hammer : MonoBehaviour
 		get { return this.isHammering; }
 	}
 
+	public Transform hammerCollider;
+
+	public GameObject hammerParticle;
+
+
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -37,6 +43,13 @@ public class Hammer : MonoBehaviour
 
 		this.isHammering = false;
 		this.hammerAnim.SetBool ("isHammering", false);
+	}
+
+	public void HammerConnected () {
+		if (this.hammerParticle != null) {
+			GameObject particle = GameObject.Instantiate (this.hammerParticle, this.hammerCollider.position, Quaternion.identity) as GameObject;
+			GameObject.Destroy (particle, 1.0f);
+		}
 	}
 }
 
