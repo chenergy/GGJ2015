@@ -78,8 +78,6 @@ public class HammerTrigger_Movable : A_HammerTrigger
 
 	protected override void OnHammerHit ()
 	{
-		base.OnHammerHit ();
-
 		Debug.Log ("Hammer has hit button");
 		isGoingForward = false;
 	}

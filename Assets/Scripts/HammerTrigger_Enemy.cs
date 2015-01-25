@@ -96,12 +96,10 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 		if (!this.isAlive) {
 			this.ReturnToLife ();
 		} else {
-			if (!this.triggered) {
+			//if (!this.triggered) {
 				StartCoroutine ("Knockback");
-			}
+			//}
 		}
-
-		base.OnHammerHit ();
 	}
 
 
@@ -117,6 +115,7 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 
 
 	IEnumerator Knockback (){
+		Debug.Log ("knockback");
 		float timer = 0.0f;
 		float maxTime = 1.0f;
 
@@ -162,12 +161,16 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 		this.enemyAnimator.SetBool ("isDying", false);
 
 		this.isAlive = false;
+
+		this.gameObject.layer = 0;
 	}
 
 
 	IEnumerator ReturnRoutine (){
 		float timer = 0.0f;
 		float maxTimer = 0.5f;
+
+		this.triggered = true;
 
 		this.enemyAnimator.SetBool ("isReturning", true);
 
@@ -183,33 +186,8 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 		this.isAlive = true;
 
 		this.triggered = false;
+
+		this.gameObject.layer = LayerMask.NameToLayer ("Enemies");
 	}
-	/*
-	void OnCollisionEnter2D (Collision2D other){
-		PlayerControl player = other.gameObject.GetComponent <PlayerControl> ();
-
-		if (player != null) {
-			player.gameObject.SetActive (false);
-
-			if (this.explosion != null) {
-				GameObject newExplosion = GameObject.Instantiate (this.explosion, player.transform.position, Quaternion.identity) as GameObject;
-
-				GameObject.Destroy (newExplosion, 0.27f);
-
-				StartCoroutine ("ResetLevel", 1.0f);
-			}
-		}
-	}
-
-	IEnumerator ResetLevel (float delay){
-		float timer = 0.0f;
-
-		while (timer < delay) {
-			yield return new WaitForEndOfFrame ();
-			timer += Time.deltaTime;
-		}
-
-		Application.LoadLevel ("HAMMER");
-	}*/
 }
 
