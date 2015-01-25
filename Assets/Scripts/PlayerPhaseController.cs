@@ -39,7 +39,7 @@ void endPhase() {
 
 	void cooldownPhase() {
 		//GameManager.Instance.PlayClipAtLocation(phaseReadyClip, gameObject.transform.position);
-		audio.PlayOneShot(phaseReadyClip, 4.0f);
+		audio.PlayOneShot(phaseReadyClip, 3.4f);
 		gameObject.renderer.material.color = Color.white;
 		canPhase = true;
 	}
