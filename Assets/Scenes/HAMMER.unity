@@ -624,7 +624,7 @@ Transform:
   - {fileID: 324188905}
   - {fileID: 1797584617}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!114 &64287405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1604,7 +1604,7 @@ Transform:
   - {fileID: 710855106}
   - {fileID: 1362315838}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1 &175307106
 GameObject:
   m_ObjectHideFlags: 0
@@ -1637,7 +1637,7 @@ Transform:
   - {fileID: 458357506}
   - {fileID: 227192953}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!114 &175307108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1951,7 +1951,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1 &201545274
 GameObject:
   m_ObjectHideFlags: 0
@@ -5594,7 +5594,7 @@ Transform:
   - {fileID: 1079563791}
   - {fileID: 1903396122}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!114 &562610833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6108,7 +6108,7 @@ Transform:
   - {fileID: 54317893}
   - {fileID: 763651688}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
 --- !u!114 &596732178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8344,7 +8344,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!61 &903088136
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8899,6 +8899,10 @@ Prefab:
     - target: {fileID: 6112170, guid: 58c47d93628f74e488e793cd9c5d5604, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412170, guid: 58c47d93628f74e488e793cd9c5d5604, type: 2}
+      propertyPath: jumpForce
+      value: 3177
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11418600, guid: 58c47d93628f74e488e793cd9c5d5604, type: 2}
@@ -11012,7 +11016,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!114 &1172283237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16020,7 +16024,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -18271,7 +18274,7 @@ Transform:
   - {fileID: 175756179}
   - {fileID: 15313007}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!82 &2029377294
 AudioSource:
   m_ObjectHideFlags: 0
@@ -18403,7 +18406,7 @@ MonoBehaviour:
   jump: 0
   moveForce: 637
   maxSpeed: 7
-  jumpForce: 2500
+  jumpForce: 3177
   explosion: {fileID: 173354, guid: 364d3ab102884482d98a60f44d8e7601, type: 2}
   jumpClip: {fileID: 8300000, guid: 2aa967c862f35443fa24c156818ec9df, type: 3}
   explosionClip: {fileID: 8300000, guid: fb6b05973ad4b4de49dadaf064de2ebc, type: 3}
