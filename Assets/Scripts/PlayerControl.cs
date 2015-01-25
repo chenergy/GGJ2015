@@ -18,15 +18,12 @@ public class PlayerControl : MonoBehaviour
 	//public float tauntProbability = 50f;	// Chance of a taunt happening.
 	//public float tauntDelay = 1f;			// Delay for when the taunt should happen.
 
+	public GameObject explosion;
 
 	//private int tauntIndex;					// The index of the taunts array indicating the most recent taunt.
 	private Transform groundCheck;			// A position marking where to check if the player is grounded.
 	private bool grounded = false;			// Whether or not the player is grounded.
 	private Animator anim;					// Reference to the player's animator component.
-
-	private bool canPhase = true;
-
-	public GameObject phaseAnimation;
 
 	void Awake()
 	{
@@ -51,15 +48,7 @@ public class PlayerControl : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		if (Input.GetKeyDown(KeyCode.Space) && canPhase) {
-			canPhase = false;
-			transform.FindChild ("body").renderer.material.color = Color.black;
-			if( this.phaseAnimation != null ) {
-				Instantiate(this.phaseAnimation, transform.position, Quaternion.identity);
-			}
-			Invoke ("endPhase", 1);
-			Invoke("cooldownPhase", 3);
-		}
+
 		// Cache the horizontal input.
 		float h = Input.GetAxis("Horizontal");
 
@@ -103,14 +92,7 @@ public class PlayerControl : MonoBehaviour
 		}
 	}
 
-	void endPhase() {
-		transform.FindChild("body").renderer.material.color = Color.red;
-	}
-	
-	void cooldownPhase() {
-		transform.FindChild("body").renderer.material.color = Color.white;
-		canPhase = true;
-	}
+
 	
 	
 	void Flip ()
@@ -122,5 +104,36 @@ public class PlayerControl : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+	}
+
+	void OnCollisionEnter2D (Collision2D other){
+		//PlayerControl player = other.gameObject.GetComponent <PlayerControl> ();
+
+		//if (player != null) {
+		if (other.gameObject.layer == LayerMask.NameToLayer("Enemies")){
+			this.collider2D.enabled = false;
+			foreach (SpriteRenderer sr in this.GetComponentsInChildren<SpriteRenderer>()){
+				sr.enabled = false;
+			}
+
+			if (this.explosion != null) {
+				GameObject newExplosion = GameObject.Instantiate (this.explosion, this.transform.position, Quaternion.identity) as GameObject;
+
+				GameObject.Destroy (newExplosion, 0.27f);
+
+				StartCoroutine ("ResetLevel", 1.0f);
+			}
+		}
+	}
+
+	IEnumerator ResetLevel (float delay){
+		float timer = 0.0f;
+
+		while (timer < delay) {
+			yield return new WaitForEndOfFrame ();
+			timer += Time.deltaTime;
+		}
+
+		Application.LoadLevel (Application.loadedLevel);
 	}
 }
