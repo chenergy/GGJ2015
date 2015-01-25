@@ -24,10 +24,6 @@ public class PlayerControl : MonoBehaviour
 	private bool grounded = false;			// Whether or not the player is grounded.
 	private Animator anim;					// Reference to the player's animator component.
 
-	private bool canPhase = true;
-
-	public GameObject phaseAnimation;
-
 	void Awake()
 	{
 		// Setting up references.
@@ -51,15 +47,7 @@ public class PlayerControl : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		if (Input.GetKeyDown(KeyCode.Space) && canPhase) {
-			canPhase = false;
-			transform.FindChild ("body").renderer.material.color = Color.black;
-			if( this.phaseAnimation != null ) {
-				Instantiate(this.phaseAnimation, transform.position, Quaternion.identity);
-			}
-			Invoke ("endPhase", 1);
-			Invoke("cooldownPhase", 3);
-		}
+
 		// Cache the horizontal input.
 		float h = Input.GetAxis("Horizontal");
 
@@ -103,14 +91,7 @@ public class PlayerControl : MonoBehaviour
 		}
 	}
 
-	void endPhase() {
-		transform.FindChild("body").renderer.material.color = Color.red;
-	}
-	
-	void cooldownPhase() {
-		transform.FindChild("body").renderer.material.color = Color.white;
-		canPhase = true;
-	}
+
 	
 	
 	void Flip ()
