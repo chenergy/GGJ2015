@@ -13,6 +13,8 @@ public class Hammer : MonoBehaviour
 
 	public GameObject hammerParticle;
 
+	public AudioClip hammerClip;
+
 
 
 	// Use this for initialization
@@ -33,12 +35,19 @@ public class Hammer : MonoBehaviour
 		float timer = 0.0f;
 		float maxTime = 0.2f;
 
+		bool hasHitDown = false;
+
 		this.isHammering = true;
 		this.hammerAnim.SetBool ("isHammering", true);
 
 		while (timer < maxTime) {
 			yield return new WaitForEndOfFrame ();
 			timer += Time.deltaTime;
+
+			if ((timer > 0.1f) && !hasHitDown) {
+				hasHitDown = true;
+				GameManager.Instance.PlayClipAtLocation (this.hammerClip, this.transform.position);
+			}
 		}
 
 		this.isHammering = false;

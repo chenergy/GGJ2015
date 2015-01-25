@@ -6,8 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/BOSS_LEVEL.unity
+    path: Assets/Scenes/START.unity
+  - enabled: 1
+    path: Assets/Scenes/BOMB_DISARM.unity
   - enabled: 1
     path: Assets/Scenes/GRAVITY.unity
   - enabled: 1
-    path: Assets/Scenes/BOMB_DISARM.unity
+    path: Assets/Scenes/GravityScene_1.0.unity
+  - enabled: 1
+    path: Assets/Scenes/HAMMER.unity
