@@ -209,7 +209,7 @@ GameObject:
   - 95: {fileID: 9512170}
   - 82: {fileID: 8212168}
   m_Layer: 9
-  m_Name: Hammer_Hero
+  m_Name: Hammer_Hero_Gravity
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -418,7 +418,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .5, y: .5}
+  m_Size: {x: .400000006, y: .400000006}
   m_Center: {x: .119999997, y: .119999997}
 --- !u!61 &6112170
 BoxCollider2D:
@@ -606,8 +606,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hammerAnim: {fileID: 9512168}
-  hammerCollider: {fileID: 412170}
-  hammerParticle: {fileID: 199710, guid: 24e2ed4374df5481d850324f6af74fc2, type: 2}
 --- !u!212 &21212168
 SpriteRenderer:
   m_ObjectHideFlags: 1

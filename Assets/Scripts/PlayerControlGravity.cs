@@ -30,7 +30,7 @@ public class PlayerControlGravity : MonoBehaviour
 	void Awake()
 	{
 		// Setting up references.
-		groundCheck = GameObject.Find("FirstFloorGround").transform;
+		groundCheck = GameObject.Find("GroundFloorLevel_1").transform;
 		Debug.Log (groundCheck.tag);
 		//anim = GetComponent<Animator>(); TODO: Remove if not used
 	}
@@ -39,14 +39,14 @@ public class PlayerControlGravity : MonoBehaviour
 	void Update()
 	{
 		// The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
-		//Debug.Log ("CharacterCheckPosition: " + transform.position);
-		//Debug.Log ("GroundCheckPosition: " + groundCheck.position);
-		grounded = Physics2D.Linecast(transform.position,new Vector3(transform.position.x, transform.position.y - 2.5f, transform.position.z), 1 << LayerMask.NameToLayer("Ground"));  
+		Debug.Log ("CharacterCheckPosition: " + transform.position);
+		Debug.Log ("GroundCheckPosition: " + groundCheck.position);
+		grounded = Physics2D.Linecast(transform.position,new Vector3(transform.position.x, transform.position.y - 10f, transform.position.z), 1 << LayerMask.NameToLayer("Ground"));  
 
-		/*if(grounded)
+		if(grounded)
 			Debug.Log ("Grounded is: true");
 		else
-			Debug.Log ("Grounded is: false");*/
+			Debug.Log ("Grounded is: false");
 
 		// If the jump button is pressed and the player is grounded then the player should jump.
 		if(Input.GetKeyDown("up"))
