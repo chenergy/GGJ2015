@@ -8,7 +8,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 412168}
-  - 114: {fileID: 11412168}
   - 95: {fileID: 9512168}
   m_Layer: 0
   m_Name: Hammer
@@ -27,6 +26,7 @@ GameObject:
   - 4: {fileID: 412170}
   - 212: {fileID: 21212168}
   - 61: {fileID: 6112168}
+  - 114: {fileID: 11480704}
   m_Layer: 0
   m_Name: Stone Mallet
   m_TagString: Untagged
@@ -418,7 +418,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .25, y: .25}
+  m_Size: {x: .400000006, y: .400000006}
   m_Center: {x: .119999997, y: .119999997}
 --- !u!61 &6112170
 BoxCollider2D:
@@ -556,7 +556,7 @@ Animator:
   m_GameObject: {fileID: 112168}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e053f8a164fd44d9c8ed5ba565746c7c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -577,18 +577,6 @@ Animator:
   m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11412168
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0654416aa43c34be583e9451accae85a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hammerAnim: {fileID: 0}
 --- !u!114 &11412170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -605,6 +593,18 @@ MonoBehaviour:
   moveForce: 637
   maxSpeed: 8
   jumpForce: 1777
+--- !u!114 &11480704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0654416aa43c34be583e9451accae85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hammerAnim: {fileID: 9512168}
 --- !u!212 &21212168
 SpriteRenderer:
   m_ObjectHideFlags: 1
