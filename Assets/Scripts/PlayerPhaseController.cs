@@ -18,7 +18,7 @@ public class PlayerPhaseController : MonoBehaviour {
 	void FixedUpdate(){
 		if (Input.GetKeyDown(KeyCode.Space) && canPhase) {
 			canPhase = false;
-			gameObject.renderer.material.color = Color.black;
+			gameObject.renderer.material.color = new Color(1f,.5f,1f,0.5f);
 			// GameManager.Instance.PlayClipAtLocation(phaseBeginClip, gameObject.transform.position);
 			audio.PlayOneShot(phaseBeginClip, 4.0f);
 			if( this.phaseAnimation != null ) {
