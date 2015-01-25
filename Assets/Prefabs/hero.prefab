@@ -186,9 +186,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   jump: 0
-  moveForce: 637
-  maxSpeed: 7
-  jumpForce: 1777
+  moveForce: 700
+  maxSpeed: 9
+  jumpForce: 3177
   explosion: {fileID: 173354, guid: 364d3ab102884482d98a60f44d8e7601, type: 2}
   jumpClip: {fileID: 8300000, guid: 2aa967c862f35443fa24c156818ec9df, type: 3}
   explosionClip: {fileID: 8300000, guid: fb6b05973ad4b4de49dadaf064de2ebc, type: 3}
