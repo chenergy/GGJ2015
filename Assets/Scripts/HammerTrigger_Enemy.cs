@@ -26,14 +26,9 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 		this.isAlive = this.startAlive;
 
 		if (this.startAlive) {
-<<<<<<< HEAD
-
-		} else {
-=======
 			//this.enemyCollider.isTrigger = false;
 		} else {
 			//this.enemyCollider.isTrigger = true;
->>>>>>> origin/master
 			this.Die ();
 		}
 
@@ -162,10 +157,7 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 			timer += Time.deltaTime;
 		}
 
-<<<<<<< HEAD
-=======
 		//this.enemyCollider.isTrigger = true;
->>>>>>> origin/master
 
 		this.enemyAnimator.SetBool ("isDying", false);
 
@@ -184,10 +176,7 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 			timer += Time.deltaTime;
 		}
 
-<<<<<<< HEAD
-=======
 		//this.enemyCollider.isTrigger = false;
->>>>>>> origin/master
 
 		this.enemyAnimator.SetBool ("isReturning", false);
 
