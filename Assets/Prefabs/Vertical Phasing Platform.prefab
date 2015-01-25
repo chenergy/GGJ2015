@@ -69,8 +69,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 180124}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106829}
-  m_LocalPosition: {x: 45.7700005, y: -2.71000004, z: 0}
-  m_LocalScale: {x: .91750139, y: .461851448, z: 1}
+  m_LocalPosition: {x: 38.7000008, y: 14, z: 0}
+  m_LocalScale: {x: 2.71945214, y: .461851448, z: 1}
   m_Children:
   - {fileID: 480122}
   - {fileID: 480126}
@@ -97,8 +97,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 1debb068374764196a01e1c69c1f413f, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 1, y: 1}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: .978141427, y: 1}
+  m_Center: {x: .0109292371, y: -8.74201396e-06}
 --- !u!61 &6180124
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -108,8 +108,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 5f9c37fb361d64b788498991d3de93d7, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 10.1125002, y: 2.75905514}
-  m_Center: {x: -.260000229, y: .0295277238}
+  m_Size: {x: 9.72594738, y: 2.75905538}
+  m_Center: {x: -.0667271689, y: .0295280349}
 --- !u!61 &6180126
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -119,8 +119,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 1debb068374764196a01e1c69c1f413f, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 1, y: 1}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: .975956261, y: 1}
+  m_Center: {x: .0120225446, y: 1.1920929e-06}
 --- !u!114 &11480126
 MonoBehaviour:
   m_ObjectHideFlags: 1
