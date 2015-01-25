@@ -19,11 +19,14 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 	private bool isAlive = true;
 	private Transform curTarget;
 
+	private Vector3 startScale;
 
 
 
 	void Start (){
 		this.isAlive = this.startAlive;
+
+		this.startScale = this.enemyTransform.localScale;
 
 		if (this.startAlive) {
 			//this.enemyCollider.isTrigger = false;
@@ -83,9 +86,9 @@ public class HammerTrigger_Enemy : A_HammerTrigger
 		this.curTarget = newTarget;
 
 		if (this.curTarget.transform.position.x > this.enemyTransform.position.x) { // right of enemy
-			this.enemyTransform.localScale = new Vector3 (-5, 5, 1);
+			this.enemyTransform.localScale = new Vector3 (-this.startScale.x, this.startScale.y, 1);
 		} else {
-			this.enemyTransform.localScale = new Vector3 (5, 5, 1);
+			this.enemyTransform.localScale = new Vector3 (this.startScale.x, this.startScale.y, 1);
 		}
 		//this.transform.position += new Vector3 (this.patrolTarget1.transform.position.x - this.enemyTransform.position.x, 
 	}
