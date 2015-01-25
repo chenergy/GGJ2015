@@ -24,8 +24,10 @@ public class LevelTriggerGravity : MonoBehaviour {
 		if(other.tag.Equals ("Player"))
 		{
 			onEnter = other.rigidbody2D.velocity.y;
-			if(transform.name.Equals("leverLevel_1_1"))
-				transform.renderer.enabled = false;
+			if(transform.name.Contains("leverLevel_"))
+			{
+				transform.renderer.enabled = false
+			}
 			//Debug.Log ("Player is: " + player.ToString ());
 			//Debug.Log ("Level Entered" + transform.name + " by object --> " + other.name);
 		}
