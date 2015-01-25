@@ -104,6 +104,7 @@ MonoBehaviour:
   enemyAnimator: {fileID: 9541192}
   patrolTarget_L: {fileID: 0}
   patrolTarget_R: {fileID: 0}
+  explosion: {fileID: 0}
   startAlive: 0
   speed: 1
 --- !u!114 &11487976
@@ -124,6 +125,7 @@ MonoBehaviour:
   enemyAnimator: {fileID: 9541192}
   patrolTarget_L: {fileID: 0}
   patrolTarget_R: {fileID: 0}
+  explosion: {fileID: 173354, guid: 364d3ab102884482d98a60f44d8e7601, type: 2}
   startAlive: 0
   speed: .100000001
 --- !u!212 &21234788

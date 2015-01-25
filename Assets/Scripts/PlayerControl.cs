@@ -24,38 +24,13 @@ public class PlayerControl : MonoBehaviour
 	private bool grounded = false;			// Whether or not the player is grounded.
 	private Animator anim;					// Reference to the player's animator component.
 
-	private bool canPhase = true;
-
-	public GameObject phaseAnimation;
-
-	private Vector3 initialPosition;
-	private bool dead = false;
-
 	void Awake()
 	{
 		// Setting up references.
 		groundCheck = transform.Find("groundCheck");
 		anim = GetComponent<Animator>();
-		initialPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 	}
 
-	void OnCollisionEnter2D(Collision2D collider) {
-		if (collider.gameObject.layer == LayerMask.NameToLayer ("Enemies")) {
-			StartCoroutine(restartLevel());
-		}
-	}
-
-	IEnumerator restartLevel() {
-		dead = true;
-		anim.SetFloat("Speed", 0);
-		anim.SetTrigger ("die");
-		transform.Rotate(Vector3.up * 90);
-		yield return new WaitForSeconds(1.0f);
-		transform.position = new Vector3 (initialPosition.x, initialPosition.y, initialPosition.z);
-		rigidbody2D.velocity = new Vector2 (0, 0);
-		cooldownPhase ();
-		dead = false;
-	}
 
 	void Update()
 	{
@@ -72,22 +47,7 @@ public class PlayerControl : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		if (dead)
-		{
-			Debug.Log ("before " + transform.rotation);
-			transform.Rotate(Vector3.up * 90);
-			Debug.Log ("after " + transform.rotation);
-			return;
-		}
-		if (Input.GetKeyDown(KeyCode.Space) && canPhase) {
-			canPhase = false;
-			transform.FindChild ("body").renderer.material.color = Color.black;
-			if( this.phaseAnimation != null ) {
-				Instantiate(this.phaseAnimation, transform.position, Quaternion.identity);
-			}
-			Invoke ("endPhase", 1);
-			Invoke("cooldownPhase", 3);
-		}
+
 		// Cache the horizontal input.
 		float h = Input.GetAxis("Horizontal");
 
@@ -131,14 +91,7 @@ public class PlayerControl : MonoBehaviour
 		}
 	}
 
-	void endPhase() {
-		transform.FindChild("body").renderer.material.color = Color.red;
-	}
-	
-	void cooldownPhase() {
-		transform.FindChild("body").renderer.material.color = Color.white;
-		canPhase = true;
-	}
+
 	
 	
 	void Flip ()

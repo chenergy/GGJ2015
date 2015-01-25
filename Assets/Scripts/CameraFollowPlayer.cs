@@ -37,6 +37,9 @@ public class CameraFollowPlayer : MonoBehaviour
 	
 	void LateUpdate ()
 	{
+		if (player == null)
+			player = GameObject.FindGameObjectWithTag ("Player").transform;
+
 		TrackPlayer ();
 	}
 	
