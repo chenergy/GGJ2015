@@ -50,7 +50,6 @@ public class PlayerControl : MonoBehaviour
 		}
 	}
 
-
 	void FixedUpdate ()
 	{
 		if (this.isAlive) {

@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 443498}
   - 212: {fileID: 21243498}
   - 61: {fileID: 6198218}
+  - 60: {fileID: 6034478}
   m_Layer: 0
   m_Name: BigRock
   m_TagString: Untagged
@@ -23,19 +24,61 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143498}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.7999992, y: -9.69999981, z: 0}
-  m_LocalScale: {x: 6, y: 7, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: .99619472, w: .087155804}
+  m_LocalPosition: {x: -24.1000004, y: -8, z: 0}
+  m_LocalScale: {x: 7, y: 13, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!60 &6034478
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143498}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Poly:
+    m_Paths:
+    - - {x: 1.12090969, y: -.209842697}
+      - {x: 1.35742128, y: -.0502657034}
+      - {x: 1.3604238, y: .0405665301}
+      - {x: 1.31036758, y: .235669225}
+      - {x: 1.40999997, y: .280000001}
+      - {x: 1.40999997, y: .419999987}
+      - {x: 1.2749548, y: .469263583}
+      - {x: 1.06093049, y: .498479187}
+      - {x: .910000026, y: .649999976}
+      - {x: .810000002, y: .680000007}
+      - {x: .506455719, y: .644679725}
+      - {x: .241980627, y: .490880042}
+      - {x: .0379705019, y: .496320158}
+      - {x: -.408019692, y: .510880113}
+      - {x: -.931007981, y: .506272137}
+      - {x: -1.2479496, y: .352001905}
+      - {x: -1.39994407, y: .304897517}
+      - {x: -1.44000006, y: -.00999999978}
+      - {x: -1.40999997, y: -.0399999991}
+      - {x: -1.07487059, y: -.271917492}
+      - {x: -.875420153, y: -.238503069}
+      - {x: -.660000026, y: -.25}
+      - {x: -.535962462, y: -.29299143}
+      - {x: -.121592745, y: -.304859698}
+      - {x: .0495208614, y: -.465464026}
+      - {x: .295045614, y: -.549263537}
+      - {x: .419999987, y: -.680000007}
+      - {x: .623107195, y: -.631470799}
+      - {x: .702466905, y: -.519529343}
+      - {x: .769999981, y: -.449999988}
+      - {x: .920951843, y: -.251169622}
 --- !u!61 &6198218
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143498}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Size: {x: 2.78167033, y: 2.02111983}
@@ -60,7 +103,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 1024582385
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: f28cca3aa9289483b8160967b37ef4c5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 47073acf5ad6ea549918ec38bfb530f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
