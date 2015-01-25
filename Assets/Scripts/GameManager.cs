@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour {
 
 	public AudioManager audio;
 	//public LevelBGM levelBGM;
+	public AudioClip nextLevelAudio;
 
 	private int level = 0;
 
@@ -106,8 +107,13 @@ public class GameManager : MonoBehaviour {
 	IEnumerator GoToNextLevelRoutine (string newLevel){
 		float timer = 0.0f;
 		float spinTime = 1.0f;
-
+		
 		GameObject player = GameObject.FindGameObjectWithTag ("Player");
+
+		
+		if (this.nextLevelAudio != null) {
+			this.audio.PlayClipAtLocation(this.nextLevelAudio, player.transform.position);
+      	}
 
 		if (player.GetComponent <PlayerControl> () != null)
 			player.GetComponent <PlayerControl> ().enabled = false;
