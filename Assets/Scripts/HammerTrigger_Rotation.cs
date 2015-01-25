@@ -17,7 +17,7 @@ public class HammerTrigger_Rotation : A_HammerTrigger
 		isGoingForward = true;
 		if (beginAngle > 180) {
 			beginAngle -= 360;
-		}
+		} 
 //		this.transform.Rotate(new Vector3(0, 0, finalAngle));
 
 	}

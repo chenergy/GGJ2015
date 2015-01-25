@@ -9,7 +9,6 @@ public class PlayerControl : MonoBehaviour
 	[HideInInspector]
 	public bool jump = false;				// Condition for whether the player should jump.
 
-
 	public float moveForce = 637f;			// Amount of force added to move the player left and right.
 	public float maxSpeed = 7f;				// The fastest the player can travel in the x axis.
 	//public AudioClip[] jumpClips;			// Array of clips for when the player jumps.
@@ -26,6 +25,7 @@ public class PlayerControl : MonoBehaviour
 	private Animator anim;					// Reference to the player's animator component.
 
 	private bool isAlive = true;
+	private float lastJump;
 
 
 	void Awake()
@@ -45,8 +45,11 @@ public class PlayerControl : MonoBehaviour
 			// If the jump button is pressed and the player is grounded then the player should jump.
 			/*if(Input.GetButtonDown("Jump") && grounded)
 			jump = true;*/
-			if (Input.GetKeyDown (KeyCode.UpArrow) && grounded)
+			if (Input.GetKeyDown (KeyCode.UpArrow) && grounded && (Time.time > lastJump + 0.5f)){
+				Debug.Log( lastJump);
+				lastJump = Time.time;
 				jump = true;
+			}
 		}
 	}
 
