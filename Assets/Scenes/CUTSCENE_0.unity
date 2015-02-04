@@ -821,7 +821,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: bf8adbbaf95a34d248ffdebdea941c79, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .361000001
+  m_Volume: .495000005
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1057,7 +1057,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 8226792, guid: 86e857c4678a2460cb428cf793992ace, type: 2}
       propertyPath: m_Volume
-      value: .361000001
+      value: .495000005
       objectReference: {fileID: 0}
     - target: {fileID: 150208, guid: 86e857c4678a2460cb428cf793992ace, type: 2}
       propertyPath: m_IsActive
